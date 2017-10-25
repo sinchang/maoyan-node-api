@@ -1,0 +1,71 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "猫眼电影 API"
+  },
+  "host": "localhost:3000",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "movies",
+      "description": "电影相关 api"
+    },
+    {
+      "name": "cinemas",
+      "description": "电影院相关 api"
+    },
+    {
+      "name": "seats",
+      "description": "选座相关 api"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/movies": {
+      "get": {
+        "tags": [
+          "movies"
+        ],
+        "summary": "获取电影列表",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "数据开始位置",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "偏移量",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "default": "hot",
+            "description": "类型",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功"
+          }
+        }
+      }
+    }
+  }
+}
